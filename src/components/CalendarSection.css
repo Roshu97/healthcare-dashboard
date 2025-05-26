@@ -1,0 +1,146 @@
+.calendar-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.month-selector {
+  font-weight: 600;
+  font-size: 16px;
+  color: #1e293b;
+}
+
+.navigation-arrows {
+  display: flex;
+  gap: 16px;
+}
+
+.calendar-header svg {
+  cursor: pointer;
+  color: #64748b;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 60px repeat(7, 1fr);
+  grid-auto-rows: auto;
+  gap: 1px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.corner-cell {
+  background: white;
+  height: 60px;
+}
+
+.day-header {
+  background: white;
+  height: 60px;
+  padding: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-name {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.day-date {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.time-slot {
+  background: white;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #64748b;
+  padding: 0 8px;
+}
+
+.calendar-cell {
+  background: white;
+  height: 40px;
+  position: relative;
+  border-top: 1px solid #f1f5f9;
+}
+
+.calendar-cell.empty {
+  background: #f8fafc;
+}
+
+.appointment {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 0;
+  bottom: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appointment.dentist {
+  background: #4f46e5;
+}
+
+.appointment.physio {
+  background: #0ea5e9;
+}
+
+.appointment.checkup {
+  background: #10b981;
+}
+
+.appointment span {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.appointment small {
+  display: block;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: 60px 1fr;
+    overflow-x: auto;
+  }
+  
+  .day-header:not(:nth-child(2)),
+  .calendar-cell:not(:nth-child(2n+1)):not(:nth-child(2)) {
+    display: none;
+  }
+}
